@@ -50,7 +50,7 @@ git push origin/<название ветки>
 
 Слияние веток может делать как разработчик, так и главный программист.
 
-* Для крупных проектов проектов используется следующий [http://nvie.com/posts/a-successful-git-branching-model/](git flow)
+* Для крупных проектов проектов используется следующий [git flow](http://nvie.com/posts/a-successful-git-branching-model/)
 
 В крупных проектах добавляется следующие типы веток:
 
