@@ -1,4 +1,162 @@
-# Softmg Coding Rules
+Рекомендации по стилю для команды Soft Media Group.
+---
+
+Мотивация
+---
+
+Уважаемые коллеги, цел этого материала привить команде определенный единый стил программирование.
+
+- Почему?: Чтобы мы все понимали код коллег без лишних действий.
+- Почему?: Чтобы внести изменения в код было проще(это важно!).
+
+![Чистый код? кого волнует?][clean-code-who-cares]
+
+Список рекомендации
+---
+- [early return](#early-return)
+
+Early Return
+---
+- Что?: Ранный выход из функции|метода.
+- Почему?: Чтобы повисить читаемость кода.
+- Почему?: Чтобы было меньше вложенности.
+
+Лучше если в начале метода сразу прописаны условия при которых он возвращает значение или бросает исключения.
+
+Примеры:
+```js
+// Плохо
+
+function something() {
+   if (expression) {
+       //...
+       //...
+       //...
+       //...
+       //...
+       //...
+       //...
+       //...
+   } else {
+       doSomething()
+   }
+}
+```
+
+```js
+// Хорошо
+
+function something() {
+   if (!expression) {
+       doSomething()
+       return;
+   }
+   
+   //...
+   //...
+   //...
+   //...
+   //...
+   //...
+   //...
+   //...
+}
+
+```
+
+```js
+# Ужасно
+
+function something1() {
+   if (expression1) {
+      //111
+      //111
+      
+      if (expression2) {
+          //222
+          //222
+          
+          if (expression3) {
+             //333
+             //333
+             if (expression4) {
+                 //444
+                 //444
+                 
+                 if (expression5) {
+                     //555
+                     //555
+                     
+                     if (expression6) {
+                        //666
+                     }
+                 }
+             } else {
+                //777
+                //777
+             }
+          }
+      }
+   }
+}
+
+```
+
+
+```js
+# Хорошо
+
+function something1() {
+   if (!expression1) {
+       return;
+   }
+   
+   //111
+   //111
+   
+   if (!expression2) {
+       return;
+   }
+   
+   //222
+   //222
+   
+   if (!expression3) {
+       return;
+   }
+   
+   //333
+   //333
+   
+   if (!expression4) {
+       //777
+       //777
+      
+       return;
+   }
+   
+   //444
+   //444
+   
+   if (!expression5) {
+       return;
+   }
+   
+   //555
+   //555
+   
+   if (!expression6) {
+       return;
+   }
+   
+   //666
+}
+
+```
+
+
+[clean-code-who-cares]: https://habrastorage.org/files/3db/03a/0a2/3db03a0a21064342a85ca886692bcc54.png
+[cyclomatic-complexity]: https://ru.wikipedia.org/wiki/%D0%A6%D0%B8%D0%BA%D0%BB%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C
 
 ## Phpstorm configs
 * Должен соблюдаться следующий стиль кода [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
