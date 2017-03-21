@@ -24,7 +24,7 @@ Early Return
 Лучше если в начале метода сразу прописаны условия при которых он возвращает значение или бросает исключения.
 
 Примеры:
-```
+```js
 // Плохо
 
 function something() {
@@ -43,7 +43,7 @@ function something() {
 }
 ```
 
-```
+```js
 // Хорошо
 
 function something() {
@@ -64,7 +64,7 @@ function something() {
 
 ```
 
-```
+```js
 # Ужасно
 
 function something1() {
@@ -103,7 +103,7 @@ function something1() {
 ```
 
 
-```
+```js
 # Хорошо
 
 function something1() {
